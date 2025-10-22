@@ -7,10 +7,6 @@ on:
       - '*'
     paths:
       - rooted-ota.sh
-  pull_request:
-    types: [synchronize, opened, reopened]
-    paths:
-      - rooted-ota.sh
 
   workflow_call:
     inputs:
@@ -61,7 +57,7 @@ on:
         required: false
 jobs:
   build-device:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 20 # Make sure to not waste hours when some command does not return 
     steps:
       - uses: actions/checkout@v5
